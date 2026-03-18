@@ -1,0 +1,16 @@
+C:\Users\kolya\source\repos\trajectory\trajectory\bin\Debug\net8.0-windows\trajectory.exe
+C:\Users\kolya\source\repos\trajectory\trajectory\bin\Debug\net8.0-windows\trajectory.deps.json
+C:\Users\kolya\source\repos\trajectory\trajectory\bin\Debug\net8.0-windows\trajectory.runtimeconfig.json
+C:\Users\kolya\source\repos\trajectory\trajectory\bin\Debug\net8.0-windows\trajectory.dll
+C:\Users\kolya\source\repos\trajectory\trajectory\bin\Debug\net8.0-windows\trajectory.pdb
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\trajectory.Form1.resources
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\trajectory.csproj.GenerateResource.cache
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\trajectory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\trajectory.AssemblyInfoInputs.cache
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\trajectory.AssemblyInfo.cs
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\trajectory.csproj.CoreCompileInputs.cache
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\trajectory.dll
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\refint\trajectory.dll
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\trajectory.pdb
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\trajectory.genruntimeconfig.cache
+C:\Users\kolya\source\repos\trajectory\trajectory\obj\Debug\net8.0-windows\ref\trajectory.dll

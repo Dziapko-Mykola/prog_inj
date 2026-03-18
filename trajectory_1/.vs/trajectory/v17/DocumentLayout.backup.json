@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kolya\\source\\repos\\trajectory\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{55353771-8938-4BCD-A8FB-9BD9DC32BA07}|trajectory\\trajectory.csproj|c:\\users\\kolya\\source\\repos\\trajectory\\trajectory\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55353771-8938-4BCD-A8FB-9BD9DC32BA07}|trajectory\\trajectory.csproj|solutionrelative:trajectory\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55353771-8938-4BCD-A8FB-9BD9DC32BA07}|trajectory\\trajectory.csproj|c:\\users\\kolya\\source\\repos\\trajectory\\trajectory\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{55353771-8938-4BCD-A8FB-9BD9DC32BA07}|trajectory\\trajectory.csproj|solutionrelative:trajectory\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\Users\\kolya\\source\\repos\\trajectory\\trajectory\\Form1.cs",
+              "RelativeDocumentMoniker": "trajectory\\Form1.cs",
+              "ToolTip": "C:\\Users\\kolya\\source\\repos\\trajectory\\trajectory\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "trajectory\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T08:38:39.153Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\kolya\\source\\repos\\trajectory\\trajectory\\Form1.cs",
+              "RelativeDocumentMoniker": "trajectory\\Form1.cs",
+              "ToolTip": "C:\\Users\\kolya\\source\\repos\\trajectory\\trajectory\\Form1.cs",
+              "RelativeToolTip": "trajectory\\Form1.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwCMAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T17:09:58.223Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
