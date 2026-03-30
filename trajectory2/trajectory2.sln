@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trajectory2", "trajectory2\trajectory2.csproj", "{0527DA89-9550-4181-92A1-048EC5687391}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0527DA89-9550-4181-92A1-048EC5687391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0527DA89-9550-4181-92A1-048EC5687391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0527DA89-9550-4181-92A1-048EC5687391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0527DA89-9550-4181-92A1-048EC5687391}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6146CF17-066A-46D5-B552-5AAA46715036}
+	EndGlobalSection
+EndGlobal
