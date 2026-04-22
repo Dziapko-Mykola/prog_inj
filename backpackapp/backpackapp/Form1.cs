@@ -9,7 +9,12 @@ namespace backpackapp
 
         private async void btnCalculate_Click(object sender, EventArgs e)
         {
-
+            // перевірка чи всі поля заповнені
+            if (string.IsNullOrWhiteSpace(txtN.Text)) { MessageBox.Show("Потрібно заповнити поле 'Кількість предметів'.", "Увага"); return; }
+            if (string.IsNullOrWhiteSpace(txtW.Text)) { MessageBox.Show("Потрібно заповнити поле 'Місткість рюкзака'.", "Увага"); return; }
+            if (string.IsNullOrWhiteSpace(txtWeights.Text)) { MessageBox.Show("Потрібно вказати ваги предметів.", "Увага"); return; }
+            if (string.IsNullOrWhiteSpace(txtValues.Text)) { MessageBox.Show("Потрібно вказати цінності предметів.", "Увага"); return; }
+            if (string.IsNullOrWhiteSpace(txtDelay.Text)) { MessageBox.Show("Вкажіть час затримки (наприклад, 100).", "Увага"); return; }
 
             try
             {
@@ -23,21 +28,21 @@ namespace backpackapp
                 // зчитування параметрів та перевірка на додатність
                 if (!int.TryParse(txtN.Text, out int N) || N <= 0)
                 {
-                    MessageBox.Show("Кількість предметів має бути цілим числом більшим за 0!", "Помилка");
+                    MessageBox.Show("Кількість предметів має бути цілим числом більшим за 0.", "Помилка");
                     btnCalculate.Enabled = true; return;
                 }
                 if (!int.TryParse(txtW.Text, out int W) || W <= 0)
                 {
-                    MessageBox.Show("Місткість рюкзака має бути цілим числом більшим за 0!", "Помилка");
+                    MessageBox.Show("Місткість рюкзака має бути цілим числом більшим за 0.", "Помилка");
                     btnCalculate.Enabled = true; return;
                 }
                 if (!int.TryParse(txtDelay.Text, out int delay) || delay < 0)
                 {
-                    MessageBox.Show("Час затримки не може бути від'ємним числом!", "Помилка");
+                    MessageBox.Show("Час затримки не може бути від'ємним числом.", "Помилка");
                     btnCalculate.Enabled = true; return;
                 }
 
-                // перевірка формату введення масивів через кому
+                // перевірка на правильність вводу масиву через кому
                 int[] weights;
                 int[] values;
                 try
@@ -52,12 +57,30 @@ namespace backpackapp
                     return;
                 }
 
+                // перевірка на від'ємні числа у масивах
+                if (weights.Any(w => w <= 0))
+                {
+                    MessageBox.Show("Вага кожного предмета має бути цілим числом більшим за 0.", "Помилка даних");
+                    btnCalculate.Enabled = true; return;
+                }
+                if (values.Any(v => v < 0))
+                {
+                    MessageBox.Show("Цінність предмета не може бути від'ємною.", "Помилка даних");
+                    btnCalculate.Enabled = true; return;
+                }
 
+                // перевірка чи кількість предметів збігається з масивами
+                if (weights.Length != N || values.Length != N)
+                {
+                    MessageBox.Show($"Ви вказали N={N}, але ввели {weights.Length} значень ваги та {values.Length} значень цінності.\nПереконайтеся, що їх кількість збігається.", "Помилка");
+                    btnCalculate.Enabled = true;
+                    return;
+                }
 
-                // КРОК 6: Ініціалізація матриці DP
+                // ініціалізація матриці DP
                 int[,] DP = new int[N + 1, W + 1];
 
-                // КРОК 7: Налаштування DataGridView
+                // налаштування DataGridView
                 dgvDP.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
                 for (int j = 0; j <= W; j++)
                 {
@@ -71,16 +94,16 @@ namespace backpackapp
                     dgvDP.Rows[i].HeaderCell.Value = $"i={i}";
                 }
 
-                // КРОК 8: Заповнення 0-го рядка та стовпця
+                // заповнення 0-го рядка та стовпця
                 for (int i = 0; i <= N; i++) dgvDP.Rows[i].Cells[0].Value = 0;
                 for (int j = 0; j <= W; j++) dgvDP.Rows[0].Cells[j].Value = 0;
 
-                // КРОК 9, 10: Головні цикли
+                // головні цикли
                 for (int i = 1; i <= N; i++)
                 {
                     for (int j = 1; j <= W; j++)
                     {
-                        // КРОК 11, 12: Логіка
+                        // логіка алгоритму
                         if (weights[i - 1] <= j)
                         {
                             DP[i, j] = Math.Max(DP[i - 1, j], values[i - 1] + DP[i - 1, j - weights[i - 1]]);
@@ -90,7 +113,7 @@ namespace backpackapp
                             DP[i, j] = DP[i - 1, j];
                         }
 
-                        // КРОК 13: Візуалізація
+                        // візуалізація
                         dgvDP.Rows[i].Cells[j].Value = DP[i, j];
                         dgvDP.Rows[i].Cells[j].Style.BackColor = Color.LightCyan;
 
@@ -100,7 +123,7 @@ namespace backpackapp
                     }
                 }
 
-                // КРОК 14: Зворотний хід
+                // зворотний хід
                 int currI = N;
                 int currJ = W;
                 List<int> selectedItems = new List<int>();
@@ -116,7 +139,7 @@ namespace backpackapp
                     currI--;
                 }
 
-                // КРОК 15: Вивід результатів
+                // вивід результатів
                 lblMaxValue.Text = $"Максимальна цінність: {DP[N, W]}";
                 selectedItems.Reverse();
 
