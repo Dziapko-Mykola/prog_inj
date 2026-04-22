@@ -33,7 +33,10 @@
             txtWeights = new TextBox();
             txtValues = new TextBox();
             panel1 = new Panel();
+            label10 = new Label();
+            txtDelay = new TextBox();
             label8 = new Label();
+            label9 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -45,37 +48,38 @@
             lblMaxValue = new Label();
             btnCalculate = new Button();
             dgvDP = new DataGridView();
-            txtDelay = new TextBox();
-            label9 = new Label();
-            label10 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDP).BeginInit();
             SuspendLayout();
             // 
             // txtN
             // 
-            txtN.Location = new Point(100, 158);
+            txtN.Anchor = AnchorStyles.Right;
+            txtN.Location = new Point(123, 158);
             txtN.Name = "txtN";
             txtN.Size = new Size(81, 27);
             txtN.TabIndex = 0;
             // 
             // txtW
             // 
-            txtW.Location = new Point(100, 217);
+            txtW.Anchor = AnchorStyles.Right;
+            txtW.Location = new Point(123, 217);
             txtW.Name = "txtW";
             txtW.Size = new Size(81, 27);
             txtW.TabIndex = 1;
             // 
             // txtWeights
             // 
-            txtWeights.Location = new Point(50, 276);
+            txtWeights.Anchor = AnchorStyles.Right;
+            txtWeights.Location = new Point(73, 276);
             txtWeights.Name = "txtWeights";
             txtWeights.Size = new Size(180, 27);
             txtWeights.TabIndex = 2;
             // 
             // txtValues
             // 
-            txtValues.Location = new Point(50, 335);
+            txtValues.Anchor = AnchorStyles.Right;
+            txtValues.Location = new Point(73, 335);
             txtValues.Name = "txtValues";
             txtValues.Size = new Size(180, 27);
             txtValues.TabIndex = 3;
@@ -101,26 +105,57 @@
             panel1.Controls.Add(txtW);
             panel1.Controls.Add(txtWeights);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(732, 0);
+            panel1.Location = new Point(686, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 553);
+            panel1.Size = new Size(296, 553);
             panel1.TabIndex = 4;
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Right;
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label10.Location = new Point(44, 73);
+            label10.Name = "label10";
+            label10.Size = new Size(72, 20);
+            label10.TabIndex = 18;
+            label10.Text = "1---------";
+            // 
+            // txtDelay
+            // 
+            txtDelay.Anchor = AnchorStyles.Right;
+            txtDelay.Location = new Point(123, 99);
+            txtDelay.Name = "txtDelay";
+            txtDelay.Size = new Size(81, 27);
+            txtDelay.TabIndex = 16;
             // 
             // label8
             // 
+            label8.Anchor = AnchorStyles.Right;
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label8.Location = new Point(21, 309);
+            label8.Location = new Point(44, 309);
             label8.Name = "label8";
             label8.Size = new Size(60, 20);
             label8.TabIndex = 15;
             label8.Text = "5-------";
             // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Location = new Point(111, 73);
+            label9.Name = "label9";
+            label9.Size = new Size(104, 20);
+            label9.TabIndex = 17;
+            label9.Text = "Час затримки";
+            // 
             // label7
             // 
+            label7.Anchor = AnchorStyles.Right;
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label7.Location = new Point(21, 250);
+            label7.Location = new Point(44, 250);
             label7.Name = "label7";
             label7.Size = new Size(84, 20);
             label7.TabIndex = 14;
@@ -128,9 +163,10 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label6.Location = new Point(21, 191);
+            label6.Location = new Point(44, 191);
             label6.Name = "label6";
             label6.Size = new Size(66, 20);
             label6.TabIndex = 13;
@@ -138,9 +174,10 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Right;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label5.Location = new Point(21, 132);
+            label5.Location = new Point(44, 132);
             label5.Name = "label5";
             label5.Size = new Size(48, 20);
             label5.TabIndex = 12;
@@ -148,8 +185,9 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(76, 309);
+            label4.Location = new Point(99, 309);
             label4.Name = "label4";
             label4.Size = new Size(128, 20);
             label4.TabIndex = 11;
@@ -157,8 +195,9 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(100, 250);
+            label3.Location = new Point(123, 250);
             label3.Name = "label3";
             label3.Size = new Size(80, 20);
             label3.TabIndex = 10;
@@ -166,8 +205,9 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(85, 191);
+            label2.Location = new Point(108, 191);
             label2.Name = "label2";
             label2.Size = new Size(111, 20);
             label2.TabIndex = 9;
@@ -175,8 +215,9 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(68, 132);
+            label1.Location = new Point(91, 132);
             label1.Name = "label1";
             label1.Size = new Size(145, 20);
             label1.TabIndex = 8;
@@ -184,17 +225,19 @@
             // 
             // lstSelectedItems
             // 
+            lstSelectedItems.Anchor = AnchorStyles.Right;
             lstSelectedItems.FormattingEnabled = true;
-            lstSelectedItems.Location = new Point(13, 398);
+            lstSelectedItems.Location = new Point(20, 398);
             lstSelectedItems.Name = "lstSelectedItems";
-            lstSelectedItems.Size = new Size(224, 104);
+            lstSelectedItems.Size = new Size(256, 104);
             lstSelectedItems.TabIndex = 7;
             // 
             // lblMaxValue
             // 
+            lblMaxValue.Anchor = AnchorStyles.Right;
             lblMaxValue.AutoSize = true;
             lblMaxValue.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblMaxValue.Location = new Point(35, 27);
+            lblMaxValue.Location = new Point(54, 27);
             lblMaxValue.Name = "lblMaxValue";
             lblMaxValue.Size = new Size(188, 20);
             lblMaxValue.TabIndex = 6;
@@ -202,8 +245,9 @@
             // 
             // btnCalculate
             // 
+            btnCalculate.Anchor = AnchorStyles.Right;
             btnCalculate.AutoSize = true;
-            btnCalculate.Location = new Point(77, 510);
+            btnCalculate.Location = new Point(96, 510);
             btnCalculate.Name = "btnCalculate";
             btnCalculate.Size = new Size(105, 30);
             btnCalculate.TabIndex = 5;
@@ -218,34 +262,8 @@
             dgvDP.Location = new Point(0, 0);
             dgvDP.Name = "dgvDP";
             dgvDP.RowHeadersWidth = 51;
-            dgvDP.Size = new Size(732, 553);
+            dgvDP.Size = new Size(686, 553);
             dgvDP.TabIndex = 5;
-            // 
-            // txtDelay
-            // 
-            txtDelay.Location = new Point(100, 99);
-            txtDelay.Name = "txtDelay";
-            txtDelay.Size = new Size(81, 27);
-            txtDelay.TabIndex = 16;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(88, 73);
-            label9.Name = "label9";
-            label9.Size = new Size(104, 20);
-            label9.TabIndex = 17;
-            label9.Text = "Час затримки";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label10.Location = new Point(21, 73);
-            label10.Name = "label10";
-            label10.Size = new Size(72, 20);
-            label10.TabIndex = 18;
-            label10.Text = "1---------";
             // 
             // Form1
             // 
