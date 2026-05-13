@@ -1,23 +1,54 @@
 import tkinter as tk
+from tkinter import ttk
+from typing import List
+
+class NumericalEngine:
+    """Клас для виконання обчислень: СЛАР, МНК та інтерполяція Лагранжа."""
+
+    @staticmethod
+    def gaussian_elimination(matrix: List[List[float]], vector: List[float]) -> List[float]:
+        """Розв'язання системи лінійних рівнянь методом Гаусса з вибором головного елемента."""
+        n = len(vector)
+        for i in range(n):
+            max_row = i
+            for k in range(i + 1, n):
+                if abs(matrix[k][i]) > abs(matrix[max_row][i]):
+                    max_row = k
+            
+            matrix[i], matrix[max_row] = matrix[max_row], matrix[i]
+            vector[i], vector[max_row] = vector[max_row], vector[i]
+
+            pivot = matrix[i][i]
+            if abs(pivot) < 1e-15:
+                continue
+
+            for k in range(i + 1, n):
+                c = -matrix[k][i] / pivot
+                for j in range(i, n):
+                    if i == j:
+                        matrix[k][j] = 0
+                    else:
+                        matrix[k][j] += c * matrix[i][j]
+                vector[k] += c * vector[i]
+
+        x = [0.0] * n
+        for i in range(n - 1, -1, -1):
+            if abs(matrix[i][i]) < 1e-15:
+                continue
+            x[i] = vector[i] / matrix[i][i]
+            for k in range(i - 1, -1, -1):
+                vector[k] -= matrix[k][i] * x[i]
+        return x
+
 class DataAnalysisApp:
     def __init__(self, root: tk.Tk):
         self.root = root
         self.root.title("Data Analysis System: Mathematical Approximation")
         self.root.geometry("1280x850")
         self.root.configure(bg="#f5f5f5")
+        print("Крок 2: Надійний алгоритм Гаусса додано до математичного ядра.")
 
-        self.datasets = {
-            "Набір даних A (5 точок)": [
-                (-3, -2.1), (-1, -0.8), (1, 0.9), (3, 2.2), (5, 3.1)
-            ],
-            "Набір даних B (8 точок)": [
-                (-4, -4.0), (-3, -3.1), (-2, -2.2), (-1, -1.3), 
-                (0, 0.1), (1, 1.2), (2, 2.3), (3, 3.4)
-            ],
-            "Набір даних C (20 точок)": [
-                (0, 0.0), (0.1, 0.1), (0.2, 0.19), (0.3, 0.28), (0.4, 0.36),
-                (0.5, 0.44), (0.6, 0.51), (0.7, 0.57), (0.8, 0.63), (0.9, 0.67),
-                (1.0, 0.71), (1.1, 0.74), (1.2, 0.76), (1.3, 0.77), (1.4, 0.78),
-                (1.5, 0.78), (1.6, 0.77), (1.7, 0.75), (1.8, 0.73), (1.9, 0.69)
-            ]
-        }
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = DataAnalysisApp(root)
+    root.mainloop()
