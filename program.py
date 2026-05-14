@@ -1,5 +1,8 @@
 import tkinter as tk
-from typing import List
+from tkinter import ttk
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+import numpy as np
 
 class NumericalEngine:
     @staticmethod
@@ -68,29 +71,42 @@ class NumericalEngine:
 class DataAnalysisApp:
     def __init__(self, root: tk.Tk):
         self.root = root
-        self.root.title("Data Analysis System")
+        self.root.title("Data Analysis System: Mathematical Approximation")
         self.root.geometry("1280x850")
+        self.root.configure(bg="#f5f5f5")
 
         self.datasets = {
-            "Набір даних A (5 точок)": [(-3, -2.1), (-1, -0.8), (1, 0.9), (3, 2.2), (5, 3.1)]
+            "Набір даних A (5 точок)": [(-3, -2.1), (-1, -0.8), (1, 0.9), (3, 2.2), (5, 3.1)],
+            "Набір даних C (20 точок)": [(0, 0.0), (0.5, 0.44), (1.0, 0.71), (1.9, 0.69)]
         }
+        self.current_data_name = tk.StringVar(value="Набір даних A (5 точок)")
+        self.view_mode = tk.StringVar(value="Усі")
 
-        # Створення контейнера для графіків
+        self._build_interface()
+
+    def _build_interface(self):
+        # Сайдбар ліворуч
+        self.sidebar = ttk.Frame(self.root, padding="20")
+        self.sidebar.pack(side=tk.LEFT, fill=tk.Y, padx=1, pady=1)
+
+        ttk.Label(self.sidebar, text="ВИБІР ДАНИХ", font=("Segoe UI", 12, "bold")).pack(anchor="w", pady=(0, 10))
+        self.combo = ttk.Combobox(self.sidebar, textvariable=self.current_data_name, values=list(self.datasets.keys()), state="readonly")
+        self.combo.pack(fill=tk.X, pady=(0, 20))
+
+        ttk.Label(self.sidebar, text="РЕЖИМ ГРАФІКА", font=("Segoe UI", 12, "bold")).pack(anchor="w", pady=(10, 5))
+        for mode in ["Усі", "Тільки МНК", "Тільки Інтерполяція"]:
+            ttk.Radiobutton(self.sidebar, text=mode, value=mode, variable=self.view_mode).pack(anchor="w", pady=2)
+
+        ttk.Label(self.sidebar, text="ЛОГ ОБЧИСЛЕНЬ", font=("Segoe UI", 10, "bold")).pack(anchor="w", pady=(20, 5))
+        self.log_widget = tk.Text(self.sidebar, height=12, width=35, font=("Consolas", 9), bg="#f8f9fa")
+        self.log_widget.pack(fill=tk.BOTH, expand=True)
+
+        # Область для графіків праворуч
         self.main_container = ttk.Frame(self.root, padding="10")
         self.main_container.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
-
-        # Створення двох осей (головний графік + графік залишків)
-        self.fig, (self.ax_plot, self.ax_res) = plt.subplots(2, 1, figsize=(10, 8), gridspec_kw={'height_ratios': [3, 1]})
-        self.fig.tight_layout(pad=5.0)
-        
+        self.fig, (self.ax_plot, self.ax_res) = plt.subplots(2, 1, figsize=(10, 8))
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.main_container)
         self.canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
-
-        # Тестове малювання базової сітки
-        self.ax_plot.grid(True, linestyle=':')
-        self.ax_res.grid(True, linestyle=':')
-        self.canvas.draw()
-
 
 if __name__ == "__main__":
     root = tk.Tk()
