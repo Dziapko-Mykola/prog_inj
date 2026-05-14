@@ -69,7 +69,28 @@ class DataAnalysisApp:
     def __init__(self, root: tk.Tk):
         self.root = root
         self.root.title("Data Analysis System")
-        print("Крок 3: Логіку МНК та полінома Лагранжа успішно вбудовано.")
+        self.root.geometry("1280x850")
+
+        self.datasets = {
+            "Набір даних A (5 точок)": [(-3, -2.1), (-1, -0.8), (1, 0.9), (3, 2.2), (5, 3.1)]
+        }
+
+        # Створення контейнера для графіків
+        self.main_container = ttk.Frame(self.root, padding="10")
+        self.main_container.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+
+        # Створення двох осей (головний графік + графік залишків)
+        self.fig, (self.ax_plot, self.ax_res) = plt.subplots(2, 1, figsize=(10, 8), gridspec_kw={'height_ratios': [3, 1]})
+        self.fig.tight_layout(pad=5.0)
+        
+        self.canvas = FigureCanvasTkAgg(self.fig, master=self.main_container)
+        self.canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
+        # Тестове малювання базової сітки
+        self.ax_plot.grid(True, linestyle=':')
+        self.ax_res.grid(True, linestyle=':')
+        self.canvas.draw()
+
 
 if __name__ == "__main__":
     root = tk.Tk()
